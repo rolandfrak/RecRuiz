@@ -66,7 +66,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="../portafolio/portafolio.html" class="nav-link">Portfolio</a>
+                        <a href="portafolio/portafolio.html" class="nav-link">Portfolio</a>
                     </li>
                     <li class="nav-item">
                         <a href="xds.html" class="nav-link">Blog</a>
@@ -332,7 +332,7 @@
 
 
 
-
+<!--
         <section class="portfolio-container bg-custom-gray" id="portfolio">
         <link rel="stylesheet" href="style.css">
         <nav class="filter-menu">
@@ -394,11 +394,12 @@
             </div>
         </div>
     </section>
+-->
+
 
     <script src="script.js"></script>
+<!--
 
-
-    <!-- Portfolio Section -->
     <section class="section bg-custom-gray" id="portfolio">
         <div class="container">
             <h1 class="mb-5"><span class="text-danger">Mi</span> Portafolio</h1>
@@ -593,8 +594,7 @@
             </div>
         </div>
     </section>
-    <!-- End of portfolio section -->
-
+-->
 
 <section class="section" id="service">
         <div class="container">
@@ -672,6 +672,35 @@
 
     <!-- JohnDoe js -->
     <script src="assets/js/johndoe.js"></script>
+    <script>
+        (function () {
+            var navbar = document.querySelector(".navbar");
+            if (!navbar) {
+                return;
+            }
+            var stuckAt = 0;
+            function recalc() {
+                var dataOffset = parseInt(navbar.getAttribute("data-offset-top"), 10);
+                stuckAt = isNaN(dataOffset) ? navbar.offsetTop : dataOffset;
+            }
+            function onScroll() {
+                if (window.pageYOffset >= stuckAt) {
+                    navbar.classList.add("is-stuck");
+                } else {
+                    navbar.classList.remove("is-stuck");
+                }
+            }
+            window.addEventListener("load", function () {
+                recalc();
+                onScroll();
+            });
+            window.addEventListener("resize", function () {
+                recalc();
+                onScroll();
+            });
+            window.addEventListener("scroll", onScroll);
+        })();
+    </script>
 
 </body>
 

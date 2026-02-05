@@ -11456,14 +11456,17 @@ pre .code {
   }
 }
 
-.navbar.affix .brand-txt {
+.navbar.affix .brand-txt,
+.navbar.is-stuck .brand-txt {
   bottom: 0;
   opacity: 1;
 }
 
-.navbar.affix .brand-img {
+.navbar.affix .brand-img,
+.navbar.is-stuck .brand-img {
   top: -10px;
   opacity: 0;
+  visibility: hidden;
 }
 
 .pagination .page-item {

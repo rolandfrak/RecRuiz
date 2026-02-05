@@ -31,6 +31,36 @@ $(document).ready(function(){
     });
 });
 
+// toggle brand image visibility when navbar reaches top
+(function () {
+    var $navbar = $(".navbar");
+    if ($navbar.length === 0) {
+        return;
+    }
+    var stuckAt = 0;
+
+    function recalcStuckPoint() {
+        var dataOffset = parseInt($navbar.attr("data-offset-top"), 10);
+        if (!isNaN(dataOffset)) {
+            stuckAt = dataOffset;
+            return;
+        }
+        stuckAt = $navbar.offset().top;
+    }
+
+    function toggleStuckClass() {
+        var y = $(window).scrollTop();
+        $navbar.toggleClass("is-stuck", y >= stuckAt);
+    }
+
+    $(window).on("load resize", function () {
+        recalcStuckPoint();
+        toggleStuckClass();
+    });
+
+    $(window).on("scroll", toggleStuckClass);
+})();
+
 // protfolio filters
 $(window).on("load", function() {
     var t = $(".portfolio-container");

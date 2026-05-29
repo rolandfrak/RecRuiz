@@ -1,245 +1,250 @@
-// ===============================
-// CATEGORÍAS DINÁMICAS
-// ===============================
-
-const categorias = {
+// === CONFIGURACIÓN DE CONTENIDO INDEPENDIENTE ===
+const secciones = {
     software: [
-        {
-            title: "Administración de Usuarios - TUPA",
-            img: "GESTION DE USUARIOS TUPA.png",
-            tag: "SOFTWARE"
+        { 
+            id: "soft-local", 
+            subtitle: "SOFTWARE LOCAL", 
+            currentIndex: 0, 
+            items: [
+                { title: "SISTEMA TUPA", img: "menu-tupa.jpg", tag: "LOCAL",desc: "Imagen perteneciente al menú de inicio del Sistema TUPA." },
+                
+                { title: "Recursos Institucionales", img: "GESTION DE RECURSOS TUPA.png", tag: "LOCAL", desc: "Formulario para la Gestión de Recursos Propios del IESTP JJFC en el Sistema Tupa"},
+                
+                { title: "Módulo de Ventas", img: "venta-Tupa.jpg", tag: "LOCAL", desc: "Formulario para el despacho de ventas del IESTP JJFC en el Sistema Tupa" },
+                
+                { title: "Gestión Clientes", img: "GESTION DE CLIENTES TUPA.png", tag: "LOCAL" },
+                { title: "Boletería Recursos", img: "BOLETERIA DE RECURSOS TUPA.png", tag: "LOCAL" },
+                { title: "Inicio De Sesión", img: "Error-Imagen.jpg", tag: "LOCAL"  , desc: "Formulario para el Inicio de sesión del Sistema Tupa"}
+            ] 
         },
-        {
-            title: "Gestión de Recursos Institucionales",
-            img: "GESTION DE RECURSOS TUPA.png",
-            tag: "SOFTWARE"
+        { 
+            id: "dev-web", 
+            subtitle: "DESARROLLO WEB", 
+            currentIndex: 0, 
+            items: [
+                { title: "Proyecto Web 1", img: "Error-Imagen.jpg", tag: "WEB" },
+                { title: "Proyecto Web 2", img: "Error-Imagen.jpg", tag: "WEB" },
+                { title: "Proyecto Web 3", img: "Error-Imagen.jpg", tag: "WEB" }
+            ] 
         },
-        {
-            title: "Módulo de Ventas y Atención",
-            img: "venta-Tupa.jpg",
-            tag: "SOFTWARE"
-        },
-        {
-            title: "Gestión de Clientes TUPA",
-            img: "GESTION DE CLIENTES TUPA.png",
-            tag: "SOFTWARE"
-        },
-        {
-            title: "Boletería de Recursos TUPA",
-            img: "BOLETERIA DE RECURSOS TUPA.png",
-            tag: "SOFTWARE"
-        },
-        {
-            title: "Panel de Inicio Sistema",
-            img: "Inicio-Tupa.jpg",
-            tag: "SOFTWARE"
+        { 
+            id: "db-admin", 
+            subtitle: "DATABASE", 
+            currentIndex: 0, 
+            items: [
+                { title: "Admin SQL Server", img: "Error-Imagen.jpg", tag: "SQL" },
+                { title: "Modelado de Datos", img: "Error-Imagen.jpg", tag: "SQL" }
+            ] 
         }
     ],
-
+    
     diseno: [
-        {
-            title: "Poster DJ ELECTRO",
-            img: "Electro-1.jpg",
-            tag: "DISEÑO"
+        { 
+            id: "dj-chawis", 
+            subtitle: "DJ CHAWIS", 
+            currentIndex: 0, 
+            items: [
+                { title: "LOGO Dj Chawis", img: "Logo-Dj_Chawis.png", tag: "DJ MIX",desc: "Logo Principal de la marca Dj Chawis ••• ⟨⟨GEMINI⟩⟩" },
+                { title: "Poster Noche Electro", img: "Electro-1.jpg", tag: "DJ MIX", desc: "Poster Publicitario para redes sociales (Facebook, Instagram, WhatsApp) con efecto neón ••• ⟨⟨COREL DRAW⟩⟩" },
+                { title: "Poster Fiesta Nocturna", img: "Electro-2.jpg", tag: "DJ MIX", desc: "Poster Publicitario para redes sociales (Facebook, Instagram, WhatsApp) con efecto neón ••• ⟨⟨COREL DRAW⟩⟩"},
+                { title: "Poster Versus Electro", img: "POSTER_vsElectro.png", tag: "DJ MIX", desc: "Poster Publicitario para redes sociales (Facebook, Instagram, WhatsApp) con efecto neón ••• ⟨⟨GEMINI⟩⟩"}
+            ] 
         },
-        {
-            title: "Poster DJ ELECTRO",
-            img: "Electro-2.jpg",
-            tag: "DISEÑO"
+        
+        { 
+            id: "design-ruiz", 
+            subtitle: "DESIGN RUIZ", 
+            currentIndex: 0, 
+            items: [
+                { title: "LOGO DESIGN RUIZ", img: "LOGO-DESIGN.png", tag: "DESIGN" ,desc: "Logo Principal de la marca Design Ruiz••• ⟨⟨COREL DRAW⟩⟩" },
+                
+                { title: "POST Publicitario", img: "POSTER-1.png", tag: "DESIGN"  ,desc: "Poster Publicitario para redes sociales (Facebook, Instagram, WhatsApp)••• ⟨⟨COREL DRAW⟩⟩"},
+                
+                { title: "POST Publicitario", img: "POSTER-2.png", tag: "DESIGN"  ,desc: "Poster Publicitario para redes sociales (Facebook, Instagram, WhatsApp)••• ⟨⟨COREL DRAW⟩⟩"},
+                
+                { title: "POST Publicitario", img: "POSTER-3.png", tag: "DESIGN"  ,desc: "Poster Publicitario para redes sociales (Facebook, Instagram, WhatsApp)••• ⟨⟨COREL DRAW⟩⟩"},
+                
+                { title: "POST Publicitario", img: "POSTER-4.png", tag: "DESIGN"  ,desc: "Poster Publicitario para redes sociales (Facebook, Instagram, WhatsApp)••• ⟨⟨COREL DRAW⟩⟩"},
+                
+                { title: "BANNER Publicitario Halloween", img: "HALLOWEEN.png", tag: "DESIGN"  ,desc: "Banner creativo para redes sociales alusivo al festival Halloween ••• ⟨⟨COREL DRAW⟩⟩"},
+                
+                { title: "BANNER Publicitario FIESTAS Patrias", img: "banner_fiestas_patrias.png", tag: "DESIGN"  ,desc: "Banner creativo para redes sociales alusivo a las Fiestas Patrias ••• ⟨⟨COREL DRAW⟩⟩"},
+                
+                { title: "PORTADA Red Social Facebook", img: "PORTADA_DESIGN.png", tag: "DESIGN"  ,desc: "Portada para perfil para red social Facebook. ••• ⟨⟨COREL DRAW⟩⟩"},
+                
+                { title: "PORTADA Red Social WhatsApp", img: "Portada_whasapp.png", tag: "DESIGN"  ,desc: "Portada para perfil para red social WhatsApp. ••• ⟨⟨CANVA⟩⟩"}
+            ] 
         },
-        {
-            title: "Diseño Publicitario 3",
-            img: "inicio-Tupa.jpg",
-            tag: "DISEÑO"
+        
+                { 
+            id: "ciberhawk", 
+            subtitle: "CIBER HAWK", 
+            currentIndex: 0, 
+            items: [
+                { title: "Logo Civer Hawk", img: "Hawk-Logo.png", tag: "DESIGN"  ,desc: "Logo principal de la marca Ciber Hawk rubro Telecomunicaciones. ••• ⟨⟨INKASPE⟩⟩"},
+                { title: "Flayer Informativo", img: "Hawk-Flayer.jpg", tag: "DESIGN"  ,desc: "Flayer Informativo sobre la marca••• ⟨⟨CANVA⟩⟩"},
+                
+                { title: "Banner", img: "Hawk-Banner-Anuncio.jpg", tag: "DESIGN"  ,desc: "Banner publicitario para redes sociales. ••• ⟨⟨INKASPE⟩⟩"},
+                
+               { title: "Banner", img: "Hawk-Banner-Planes.jpg", tag: "DESIGN"  ,desc: "Banner publicitario para redes sociales. ••• ⟨⟨INKASPE⟩⟩"},
+               
+               { title: "Banner", img: "Hawk-Banner-Promo1.jpg", tag: "DESIGN"  ,desc: "Banner publicitario para redes sociales. ••• ⟨⟨INKASPE⟩⟩"},
+               
+               { title: "Banner", img: "Hawk-Banner-Promo2.jpg", tag: "DESIGN"  ,desc: "Banner publicitario para redes sociales. ••• ⟨⟨INKASPE⟩⟩"},
+               { title: "Banner", img: "Hawk-Banner-Sorteo.jpg", tag: "DESIGN"  ,desc: "Banner publicitario para redes sociales. ••• ⟨⟨INKASPE⟩⟩"},
+               
+            ] 
         },
-        {
-            title: "Diseño Publicitario 4",
-            img: "diseno-4.jpg",
-            tag: "DISEÑO"
+        
+        { 
+            id: "medical", 
+            subtitle: "MEDICAL", 
+            currentIndex: 0, 
+            items: [
+                { title: "Diseño Médico 1", img: "Error-Imagen.jpg", tag: "MEDICAL" },
+                { title: "Diseño Médico 2", img: "Error-Imagen.jpg", tag: "MEDICAL" }
+            ] 
         }
     ]
 };
 
-// ===============================
-// VARIABLES
-// ===============================
+// ... (resto del código igual)
 
-const track = document.getElementById('tupaTrack');
-const btnPrev = document.getElementById('btnPrev');
-const btnNext = document.getElementById('btnNext');
+function buildAllCarousels() {
+    const container = document.getElementById('dynamic-carousels-container');
+    if (!container) return;
+    container.innerHTML = '';
+    
+    // CORRECCIÓN AQUÍ: Cambiamos 'diseño' por 'diseno'
+    // La 'ñ' causa problemas en las rutas de los archivos web.
+    // Asegúrate de que tu carpeta física se llame 'diseno' (sin eñe).
+    const folder = categoriaActual === 'software' ? 'portf' : 'dis';
 
-let categoriaActual = 'software';
-let currentIndex = 0;
+    secciones[categoriaActual].forEach((seccion) => {
+        const carouselGroup = document.createElement('div');
+        carouselGroup.className = 'carousel-group';
+        carouselGroup.style.marginBottom = "60px";
 
-// ===============================
-// CREAR CARRUSEL
-// ===============================
-
-function buildCarousel() {
-
-    const proyectos = categorias[categoriaActual];
-
-    track.innerHTML = '';
-
-    proyectos.forEach((proj) => {
-
-        const card = document.createElement('div');
-
-        card.className = 'tupa-card';
-
-        card.innerHTML = `
-            <div class="card-content">
-
-                <div class="card-top">
-                    <img src="assets/imgs/portf/${proj.img}" alt="${proj.title}">
-                    <img src="assets/imgs/diseño/${proj.img}" alt="${proj.title}">
+        carouselGroup.innerHTML = `
+            <h2 class="text-title" style="margin-left: 5%;">${seccion.subtitle}</h2>
+            <div class="tupa-carousel-container" id="container-${seccion.id}">
+                <button class="nav-btn prev" onclick="moveSlider('${seccion.id}', -1)">❮</button>
+                <div class="tupa-viewport">
+                    <div class="tupa-track" id="track-${seccion.id}">
+                        ${seccion.items.map(item => `
+                            <div class="tupa-card" onmousedown="startSwipe(event, '${seccion.id}')" ontouchstart="startSwipe(event, '${seccion.id}')">
+                                <div class="card-content">
+                                    <div class="card-top"><img src="assets/imgs/${folder}/${item.img}" draggable="false"></div>
+                                    <div class="card-bottom">
+                                        <span class="tupa-tag">${item.tag}</span>
+                                        <h3>${item.title}</h3>
+                                        <button class="btn-open" onclick="irADetalle(
+    '${item.title}',
+    'assets/imgs/${folder}/${item.img}',
+    '${item.desc}',
+    '${item.tag}'
+)">↗</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
-
-                <div class="card-bottom">
-
-                    <span class="tupa-tag">${proj.tag}</span>
-
-                    <h3>${proj.title}</h3>
-
-                    <button 
-                        class="btn-open"
-                        onclick="irADetalle(
-                            '${proj.title}',
-                            'assets/imgs/portf/${proj.img}'
-                        )">
-                        ↗
-                    </button>
-
-                </div>
-
+                <button class="nav-btn next" onclick="moveSlider('${seccion.id}', 1)">❯</button>
             </div>
         `;
-
-        track.appendChild(card);
-
+        container.appendChild(carouselGroup);
+        updateSlider(seccion.id);
     });
-
-    updateSlider();
 }
 
-// ===============================
-// CAMBIAR CATEGORÍA
-// ===============================
+// === LÓGICA DE NAVEGACIÓN ===
+function moveSlider(seccionId, direction) {
+    const seccion = secciones[categoriaActual].find(s => s.id === seccionId);
+    const cardsInView = window.innerWidth > 800 ? 2 : 1;
+    const maxIndex = Math.max(0, seccion.items.length - cardsInView);
+    seccion.currentIndex = Math.max(0, Math.min(seccion.currentIndex + direction, maxIndex));
+    updateSlider(seccionId);
+}
+
+function updateSlider(seccionId) {
+    const seccion = secciones[categoriaActual].find(s => s.id === seccionId);
+    const track = document.getElementById(`track-${seccionId}`);
+    const container = document.getElementById(`container-${seccionId}`);
+    if (!track) return;
+
+    const cardWidth = track.querySelector('.tupa-card').offsetWidth;
+    track.style.transform = `translateX(-${seccion.currentIndex * cardWidth}px)`;
+    
+    const cardsInView = window.innerWidth > 800 ? 2 : 1;
+    container.querySelector('.prev').classList.toggle('hidden', seccion.currentIndex <= 0);
+    container.querySelector('.next').classList.toggle('hidden', seccion.currentIndex >= (seccion.items.length - cardsInView));
+}
+
+// === LÓGICA TÁCTIL / SWIPE ===
+function startSwipe(event, id) {
+    isDragging = true;
+    currentSeccionId = id;
+    startPos = getPositionX(event);
+    const track = document.getElementById(`track-${id}`);
+    track.style.transition = 'none';
+}
+
+function moveSwipe(event) {
+    if (!isDragging) return;
+    const currentPosition = getPositionX(event);
+    const diff = currentPosition - startPos;
+    const seccion = secciones[categoriaActual].find(s => s.id === currentSeccionId);
+    const cardWidth = document.querySelector('.tupa-card').offsetWidth;
+    const translate = (-seccion.currentIndex * cardWidth) + diff;
+    document.getElementById(`track-${currentSeccionId}`).style.transform = `translateX(${translate}px)`;
+}
+
+function endSwipe() {
+    if (!isDragging) return;
+    isDragging = false;
+    const track = document.getElementById(`track-${currentSeccionId}`);
+    if (!track) return;
+    track.style.transition = 'all 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+    
+    const cardWidth = document.querySelector('.tupa-card').offsetWidth;
+    const currentTransform = new WebKitCSSMatrix(window.getComputedStyle(track).transform).m41;
+    const movedBy = currentTransform + (secciones[categoriaActual].find(s => s.id === currentSeccionId).currentIndex * cardWidth);
+
+    if (movedBy < -50) moveSlider(currentSeccionId, 1);
+    else if (movedBy > 50) moveSlider(currentSeccionId, -1);
+    else updateSlider(currentSeccionId);
+}
+
+function getPositionX(event) {
+    return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+}
+
+// === EVENTOS GLOBALES ===
+window.onmousemove = moveSwipe;
+window.onmouseup = endSwipe;
+window.ontouchmove = moveSwipe;
+window.ontouchend = endSwipe;
 
 function cargarCategoria(categoria, boton) {
-
     categoriaActual = categoria;
-
-    currentIndex = 0;
-
-    // QUITAR ACTIVE A TODOS
-    document.querySelectorAll('.submenu-btn')
-        .forEach(btn => btn.classList.remove('active'));
-
-    // AGREGAR ACTIVE AL ACTUAL
+    document.querySelectorAll('.submenu-btn').forEach(btn => btn.classList.remove('active'));
     boton.classList.add('active');
-
-    // EFECTO FADE
-    track.style.opacity = 0;
-
-    setTimeout(() => {
-
-        buildCarousel();
-
-        track.style.opacity = 1;
-
-    }, 200);
+    buildAllCarousels();
 }
 
-// ===============================
-// BOTONES NEXT Y PREV
-// ===============================
-
-function checkButtons() {
-
-    const proyectos = categorias[categoriaActual];
-
-    const cardsInView = window.innerWidth > 800 ? 2 : 1;
-
-    const maxIndex = proyectos.length - cardsInView;
-
-    btnPrev.classList.toggle('hidden', currentIndex <= 0);
-
-    btnNext.classList.toggle('hidden', currentIndex >= maxIndex);
-
-}
-
-function updateSlider() {
-
-    const card = document.querySelector('.tupa-card');
-
-    if (!card) return;
-
-    const cardWidth = card.offsetWidth;
-
-    track.style.transform =
-        `translateX(-${currentIndex * cardWidth}px)`;
-
-    checkButtons();
-}
-
-// ===============================
-// NAVEGACIÓN
-// ===============================
-
-btnNext.onclick = () => {
-
-    const proyectos = categorias[categoriaActual];
-
-    const cardsInView = window.innerWidth > 800 ? 2 : 1;
-
-    if (currentIndex < proyectos.length - cardsInView) {
-
-        currentIndex++;
-
-        updateSlider();
-
-    }
-
-};
-
-btnPrev.onclick = () => {
-
-    if (currentIndex > 0) {
-
-        currentIndex--;
-
-        updateSlider();
-
-    }
-
-};
-
-// ===============================
-// DETALLE
-// ===============================
-
-function irADetalle(titulo, imagen) {
-
-    const tituloCodificado = encodeURIComponent(titulo);
-
-    const imagenCodificada = encodeURIComponent(imagen);
-
+function irADetalle(titulo, imagen, desc, tipo){
     window.location.href =
-        `foto-info.html?titulo=${tituloCodificado}&img=${imagenCodificada}`;
-
+`foto-info.html
+?titulo=${encodeURIComponent(titulo)}
+&img=${encodeURIComponent(imagen)}
+&desc=${encodeURIComponent(desc)}
+&tipo=${encodeURIComponent(tipo)}`;
 }
 
-// ===============================
-// RESPONSIVE
-// ===============================
-
-window.onresize = updateSlider;
-
-// ===============================
-// INICIAR
-// ===============================
-
-buildCarousel();
-
-
+window.onload = buildAllCarousels; me 
+window.onresize = () => {
+    if (secciones[categoriaActual]) {
+        secciones[categoriaActual].forEach(s => updateSlider(s.id));
+    }
+};

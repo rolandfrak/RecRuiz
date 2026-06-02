@@ -1,7 +1,15 @@
+let categoriaActual = 'software';
+let isDragging = false;
+let currentSeccionId = null;
+let startPos = 0;
+
+
 // === CONFIGURACIÓN DE CONTENIDO INDEPENDIENTE ===
 const secciones = {
     software: [
         { 
+        
+        
             id: "soft-local", 
             subtitle: "SOFTWARE LOCAL", 
             currentIndex: 0, 
@@ -17,14 +25,25 @@ const secciones = {
                 { title: "Inicio De Sesión", img: "Error-Imagen.jpg", tag: "LOCAL"  , desc: "Formulario para el Inicio de sesión del Sistema Tupa"}
             ] 
         },
+        
+        
+        
+        
         { 
             id: "dev-web", 
             subtitle: "DESARROLLO WEB", 
             currentIndex: 0, 
             items: [
-                { title: "Proyecto Web 1", img: "Error-Imagen.jpg", tag: "WEB" },
-                { title: "Proyecto Web 2", img: "Error-Imagen.jpg", tag: "WEB" },
-                { title: "Proyecto Web 3", img: "Error-Imagen.jpg", tag: "WEB" }
+                { title: "Página de Inicio", img: "infor-ruiz-inicio.png", tag: "SITIO WEB",desc: "Página de inicio del sitio web Informática Ruiz.VER WEB:  https://rolandfrak.github.io/Mi-Primera-Web/index.html" },
+                
+                { title: "Página Nosotros", img: "infor-ruiz-nosotros.png", tag: "SITIO WEB", desc: "Página que contiene información sobre el propósito del sitio web y datos del desarrollador."},
+                
+                { title: "Página Colección", img:"infor-ruiz-coleccion.png", tag: "SITIO WEB", desc: "Colección, página que contiene temas educativos referente a la computación e informática." },
+                
+                { title: "Colección: Nube Informática", img:"infor-ruiz-nube.png", tag: "SITIO WEB", desc: "Muestra de tema informativo nube informática, dentro de la página colección."},
+                
+                { title: "Colección: Nube Informática", img:"infor-ruiz-redes.png", tag: "SITIO WEB", desc: "Muestra de tema informativo redes informáticas, dentro de la página colección."}
+                
             ] 
         },
         { 
@@ -242,7 +261,12 @@ function irADetalle(titulo, imagen, desc, tipo){
 &tipo=${encodeURIComponent(tipo)}`;
 }
 
-window.onload = buildAllCarousels; me 
+document.addEventListener('DOMContentLoaded', () => {
+    categoriaActual = 'software';
+    buildAllCarousels();
+});
+
+
 window.onresize = () => {
     if (secciones[categoriaActual]) {
         secciones[categoriaActual].forEach(s => updateSlider(s.id));

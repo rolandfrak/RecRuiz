@@ -17,7 +17,7 @@ const secciones = {
                 { title: "Inicio De Sesión", img: "Error-Imagen.jpg", tag: "LOCAL"  , desc: "Formulario para el Inicio de sesión del Sistema Tupa"}
             ] 
         },
-
+        {
         id: "dev-web", 
             subtitle: "SITIO WEB INFORMÁTICA RUIZ", 
             currentIndex: 0, 

@@ -1,15 +1,7 @@
-let categoriaActual = 'software';
-let isDragging = false;
-let currentSeccionId = null;
-let startPos = 0;
-
-
 // === CONFIGURACIÓN DE CONTENIDO INDEPENDIENTE ===
 const secciones = {
     software: [
         { 
-        
-        
             id: "soft-local", 
             subtitle: "SOFTWARE LOCAL", 
             currentIndex: 0, 
@@ -25,13 +17,9 @@ const secciones = {
                 { title: "Inicio De Sesión", img: "Error-Imagen.jpg", tag: "LOCAL"  , desc: "Formulario para el Inicio de sesión del Sistema Tupa"}
             ] 
         },
-        
-        
-        
-        
-        { 
-            id: "dev-web", 
-            subtitle: "DESARROLLO WEB", 
+
+        id: "dev-web", 
+            subtitle: "SITIO WEB INFORMÁTICA RUIZ", 
             currentIndex: 0, 
             items: [
                 { title: "Página de Inicio", img: "infor-ruiz-inicio.png", tag: "SITIO WEB",desc: "Página de inicio del sitio web Informática Ruiz.VER WEB:  https://rolandfrak.github.io/Mi-Primera-Web/index.html" },
@@ -44,6 +32,17 @@ const secciones = {
                 
                 { title: "Colección: Nube Informática", img:"infor-ruiz-redes.png", tag: "SITIO WEB", desc: "Muestra de tema informativo redes informáticas, dentro de la página colección."}
                 
+            ] 
+        },
+    
+        { 
+            id: "dev-web", 
+            subtitle: "DESARROLLO WEB", 
+            currentIndex: 0, 
+            items: [
+                { title: "Proyecto Web 1", img: "Error-Imagen.jpg", tag: "WEB" },
+                { title: "Proyecto Web 2", img: "Error-Imagen.jpg", tag: "WEB" },
+                { title: "Proyecto Web 3", img: "Error-Imagen.jpg", tag: "WEB" }
             ] 
         },
         { 
@@ -183,6 +182,91 @@ function moveSlider(seccionId, direction) {
     const cardsInView = window.innerWidth > 800 ? 2 : 1;
     const maxIndex = Math.max(0, seccion.items.length - cardsInView);
     seccion.currentIndex = Math.max(0, Math.min(seccion.currentIndex + direction, maxIndex));
+    updateSlider(seccionId);
+}
+
+function updateSlider(seccionId) {
+    const seccion = secciones[categoriaActual].find(s => s.id === seccionId);
+    const track = document.getElementById(`track-${seccionId}`);
+    const container = document.getElementById(`container-${seccionId}`);
+    if (!track) return;
+
+    const cardWidth = track.querySelector('.tupa-card').offsetWidth;
+    track.style.transform = `translateX(-${seccion.currentIndex * cardWidth}px)`;
+    
+    const cardsInView = window.innerWidth > 800 ? 2 : 1;
+    container.querySelector('.prev').classList.toggle('hidden', seccion.currentIndex <= 0);
+    container.querySelector('.next').classList.toggle('hidden', seccion.currentIndex >= (seccion.items.length - cardsInView));
+}
+
+// === LÓGICA TÁCTIL / SWIPE ===
+function startSwipe(event, id) {
+    isDragging = true;
+    currentSeccionId = id;
+    startPos = getPositionX(event);
+    const track = document.getElementById(`track-${id}`);
+    track.style.transition = 'none';
+}
+
+function moveSwipe(event) {
+    if (!isDragging) return;
+    const currentPosition = getPositionX(event);
+    const diff = currentPosition - startPos;
+    const seccion = secciones[categoriaActual].find(s => s.id === currentSeccionId);
+    const cardWidth = document.querySelector('.tupa-card').offsetWidth;
+    const translate = (-seccion.currentIndex * cardWidth) + diff;
+    document.getElementById(`track-${currentSeccionId}`).style.transform = `translateX(${translate}px)`;
+}
+
+function endSwipe() {
+    if (!isDragging) return;
+    isDragging = false;
+    const track = document.getElementById(`track-${currentSeccionId}`);
+    if (!track) return;
+    track.style.transition = 'all 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+    
+    const cardWidth = document.querySelector('.tupa-card').offsetWidth;
+    const currentTransform = new WebKitCSSMatrix(window.getComputedStyle(track).transform).m41;
+    const movedBy = currentTransform + (secciones[categoriaActual].find(s => s.id === currentSeccionId).currentIndex * cardWidth);
+
+    if (movedBy < -50) moveSlider(currentSeccionId, 1);
+    else if (movedBy > 50) moveSlider(currentSeccionId, -1);
+    else updateSlider(currentSeccionId);
+}
+
+function getPositionX(event) {
+    return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+}
+
+// === EVENTOS GLOBALES ===
+window.onmousemove = moveSwipe;
+window.onmouseup = endSwipe;
+window.ontouchmove = moveSwipe;
+window.ontouchend = endSwipe;
+
+function cargarCategoria(categoria, boton) {
+    categoriaActual = categoria;
+    document.querySelectorAll('.submenu-btn').forEach(btn => btn.classList.remove('active'));
+    boton.classList.add('active');
+    buildAllCarousels();
+}
+
+function irADetalle(titulo, imagen, desc, tipo){
+    window.location.href =
+`foto-info.html
+?titulo=${encodeURIComponent(titulo)}
+&img=${encodeURIComponent(imagen)}
+&desc=${encodeURIComponent(desc)}
+&tipo=${encodeURIComponent(tipo)}`;
+}
+
+window.onload = buildAllCarousels; me 
+window.onresize = () => {
+    if (secciones[categoriaActual]) {
+        secciones[categoriaActual].forEach(s => updateSlider(s.id));
+    }
+};
+entIndex = Math.max(0, Math.min(seccion.currentIndex + direction, maxIndex));
     updateSlider(seccionId);
 }
 

@@ -1,3 +1,4 @@
+
 *{
     margin:0;
     padding:0;
@@ -22,7 +23,7 @@ body{
 }
 
 .hero{
-    height:100vh;
+    height:90vh;
     background:url("../img/port/header.jpg") center center/cover;
     position:relative;
     display:flex;
@@ -144,6 +145,11 @@ body{
 
 @media(max-width:992px){
 
+    .hero {
+        /* Mueve el foco horizontal al 75% (del medio a la derecha) y mantiene el centro vertical */
+        background-position: 65% center; 
+    }
+
     .navbar{
         justify-content: space-between;
         padding: 0 20px;
@@ -200,22 +206,29 @@ body{
     }
 
     /* CORRECCIÓN PROBLEMA 2: Posicionamiento dinámico controlado desde JS */
-        .menu-left,
+    
+    
+    
+    
+    
+    
+    .menu-left,
     .menu-right {
         left: -100%;
         width: 100%;
+        position: absolute;
         background: white;
         flex-direction: column;
         gap: 0;
         transition: left .3s ease;
+        box-shadow: 0 10px 20px rgba(0,0,0,.1);
         z-index: 998;
-        /* Quitamos las sombras individuales para que no generen conflictos en el medio */
-        box-shadow: none; 
     }
 
-    /* Le aplicamos una sombra global solo al bloque inferior para cerrar el menú elegantemente */
+    /* Cuando se activa la hamburguesa se desplazan al frente */
+    .menu-left.active,
     .menu-right.active {
-        box-shadow: 0 15px 25px rgba(0,0,0,.1);
+        left: 0;
     }
 
     .menu-left li,
@@ -223,17 +236,21 @@ body{
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #eee;
-    }
+    }        
 
-    /* Quitamos el borde inferior al elemento 'Resumen' para que no se duplique con el de abajo */
-    .menu-left li:last-child {
-        border-bottom: none;
+    .menu-left a,
+    .menu-right a {
+        display: block;
+        padding: 18px;
     }
 
     .hero-content h1 {
         font-size: 3rem;
     }
 }
+
+
+
 
 
 /* --------------------SECCION INFO PERSONAL--------------------- */
@@ -1051,4 +1068,181 @@ body{
   .services-dots {
     display: none !important;
   }
+}
+
+
+
+
+/* ==========================================================================
+   PIE DE PÁGINA (FOOTER ESTILO PREMIUM DE REFERENCIA)
+   ========================================================================== */
+
+.main-footer {
+    background-color: #0f172a; /* Fondo oscuro moderno */
+    color: #f8fafc;
+    padding: 80px 0 30px 0;
+    font-family: 'Segoe UI', sans-serif;
+    border-top: 1px solid #1e293b;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr 1fr; /* Tres columnas asimétricas */
+    gap: 60px;
+}
+
+/* COLUMNA BRAND (LOGO Y DECLARACIÓN) */
+.footer-brand-side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-logo-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.footer-title-text h5 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.footer-title-text span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 2px;
+}
+
+.footer-statement {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin: 0;
+    max-width: 480px;
+}
+
+/* SUBTÍTULOS DE COLUMNAS */
+.footer-sub {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+    position: relative;
+}
+
+/* ENLACES RÁPIDOS */
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    transition: color 0.25s ease, transform 0.25s ease;
+    display: inline-block;
+}
+
+.footer-menu a:hover {
+    color: var(--primary-color);
+    transform: translateX(4px);
+}
+
+/* SECCIÓN SOCIALES */
+.footer-social-side {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-social-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #94a3b8;
+    margin: 0 0 20px 0;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #1e293b;
+    color: #94a3b8;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    border: 1px solid #334155;
+}
+
+.social-icon:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(20, 110, 166, 0.2);
+}
+
+/* BARRA INFERIOR DE CRÉDITOS */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 60px auto 0 auto;
+    padding: 25px 20px 0 20px;
+    border-top: 1px solid #1e293b;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE - APILADO EN DISPOSITIVOS MÓVILES
+   ========================================================================== */
+@media (max-width: 992px) {
+    .main-footer {
+        padding: 60px 0 30px 0;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr; /* Columna única en móviles */
+        gap: 40px;
+    }
+
+    .footer-sub {
+        margin-bottom: 16px;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+    }
 }
